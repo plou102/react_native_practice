@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
 
 import * as Location from "expo-location";
+import { API_KEY } from "@env";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
@@ -10,6 +11,9 @@ export default function App() {
   const [city, setCity] = useState("Loading...");
   const [ok, setOk] = useState(true);
   const [days, setDays] = useState([]);
+
+  const apiKey = API_KEY;
+  console.log(apiKey);
 
   const getWeather = async () => {
     const { granted } = await Location.requestForegroundPermissionsAsync();
